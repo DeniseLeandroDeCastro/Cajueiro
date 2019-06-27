@@ -1,0 +1,48 @@
+<div class=""> 
+<ion-card-header color="dark"> 
+  <ion-toolbar>
+      <ion-item color="dark">
+          <ion-thumbnail slot="start">
+            <ion-img src="assets/img/IFRNnovo.jpg"></ion-img>
+        </ion-thumbnail>
+          <ion-title>
+            <h1 class="title">Qr Code</h1>
+          </ion-title>
+        </ion-item>
+  </ion-toolbar>
+</ion-card-header>
+
+</div>
+
+<ion-content color= "light" class="has-header has-footer">
+  <ion-item>
+    <ion-input type="text" placeholder="Digite o texto para gerar o seu código QR" [(ngModel)]="qrData"></ion-input>
+  </ion-item>
+
+
+
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [(qrc-value)]="createdCode" ></ngx-qrcode>
+  <ion-card-content>
+    <p>Value: {{createdCode}}</p>
+  </ion-card-content>
+
+  </ion-card>
+
+<ion-card *ngIf="scannedCode">
+<ion-card-content>
+  Result from scan:{{scannedCode}}
+  <ion-button href="{{scannedCode}}" color="dark" expand="full" size="default" >Acesso</ion-button> 
+</ion-card-content>
+</ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <ion-item  color= "light"> 
+        <ion-button color="dark" expand="full" size="default" (click)="createCode()"><ion-icon name="logo-ionic"></ion-icon> Gerar QRCode</ion-button>
+        <ion-button color="dark" expand="full" size="default" (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon> Ler QRCode</ion-button>
+    </ion-item>
+    
+  </ion-toolbar>
+</ion-footer>

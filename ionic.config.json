@@ -1,0 +1,7 @@
+{
+  "name": "turism-scann",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
